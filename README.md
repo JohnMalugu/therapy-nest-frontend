@@ -1,69 +1,104 @@
-# React + TypeScript + Vite
+# Therapy Nest Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![React](https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB)
+![Vite](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
+![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
 
-Currently, two official plugins are available:
+A modern, responsive dashboard for mental health professionals and users to track mood and journal analytics. Built with React and integrated with the [MindfulAI](https://github.com/) Spring Boot backend, this project visualizes AI-generated insights and trends from user journals.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+| Category            | Tech Details                                              |
+|---------------------|-----------------------------------------------------------|
+| **Frontend**        | React, Vite, TypeScript, TailwindCSS, Chart.js           |
+| **Backend (API)**   | MindfulAI (Spring Boot), JWT Authentication, REST APIs   |
+| **Routing & Tools** | React Router v6, Axios                                   |
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## 📊 Key Features
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- 📈 Interactive mood/journal trend charts using Chart.js  
+- 🔐 Secure JWT authentication via the MindfulAI backend  
+- 📱 Responsive design (mobile & desktop friendly)  
+- 🧠 AI-powered sentiment highlights *(coming soon)*  
+
+---
+
+## 📁 Project Structure
+
+| Path               | Description                                |
+|--------------------|--------------------------------------------|
+| `src/components/`  | Reusable UI components (e.g., MoodChart)   |
+| `src/pages/`       | Main views/pages (Dashboard, Insights)     |
+| `src/services/`    | API service clients (auth, journals)       |
+| `src/types/`       | TypeScript interfaces and types            |
+| `src/App.tsx`      | App entry and route definitions            |
+
+---
+
+## ⚡ Quick Start
+
+### 1. Clone the Repository
+```bash
+git clone https://github.com/yourusername/therapy-nest-frontend.git
+cd therapy-nest-frontend
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 2. Set Up Environment
+Create a `.env` file in the root directory:
 ```
+VITE_API_BASE_URL=http://localhost:8080/api
+```
+
+### 3. Install Dependencies
+```bash
+npm install
+```
+
+### 4. Run the Development Server
+```bash
+npm run dev
+```
+
+App will be running at [http://localhost:5173](http://localhost:5173)
+
+---
+
+## 🌐 Backend API Endpoints (MindfulAI)
+
+| Method | Endpoint           | Description                     |
+|--------|--------------------|---------------------------------|
+| GET    | `/journals`        | Fetch all user journal entries  |
+| POST   | `/auth/login`      | Authenticate and receive token |
+| POST   | `/journals`        | Submit new journal entry        |
+| GET    | `/moods`           | Get mood analytics/trends       |
+
+> 🔐 All endpoints require `Authorization: Bearer <token>`
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions! To get started:
+
+1. Fork the repository
+2. Create a new branch (`git checkout -b feature-name`)
+3. Commit your changes (`git commit -m 'Add feature'`)
+4. Push to your branch (`git push origin feature-name`)
+5. Open a pull request 🚀
+
+Make sure to follow consistent code style and include relevant tests/documentation if applicable.
+
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+> Built with 💙 to support mental wellness and data-driven insights.

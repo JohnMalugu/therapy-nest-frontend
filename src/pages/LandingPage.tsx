@@ -14,6 +14,7 @@ import stress from '../assets/images/stress.png'
 
 import { Card } from "../components/layout/Card";
 import { LongCard } from "../components/layout/LongCard";
+import { Footer } from "../components/layout/Footer";
 
 export const LandingPage = () => {
     const cardsData = [
@@ -168,7 +169,11 @@ export const LandingPage = () => {
                     ))}
 
                 </div>
+ 
+ 
+            
             </div>
+            <Footer/>
         </div>
     );
 }

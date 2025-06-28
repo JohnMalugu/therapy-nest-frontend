@@ -1,1 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Libertinus+Math&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 @import "tailwindcss";
+
+@theme {
+
+    --color-primary: teal;
+    --color-primary-black: #121714;
+    --font-display: "Oswald", "sans-serif";
+    --font-main: "Libertinus Math", system-ui;
+    --font-primary1: "Roboto", sans-serif;
+    --font-primary: "Lexend", sans-serif;
+
+}

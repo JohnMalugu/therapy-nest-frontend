@@ -1,0 +1,180 @@
+import { Link } from "react-router-dom";
+import { NavBar } from "../components/layout/NavBar";
+import backgroundImg from '../assets/images/brain.png';
+import ai_companion from '../assets/images/ai_companion.png'
+import mood from '../assets/images/mood.png'
+import journaling from '../assets/images/journaling.png'
+import therapist from '../assets/images/therapist.png'
+import sophia from '../assets/images/sophia.png'
+import ethan from '../assets/images/ethan.png'
+import olivia from '../assets/images/olivia.png'
+import anxiety from '../assets/images/anxiety.png'
+import stress from '../assets/images/stress.png'
+
+
+import { Card } from "../components/layout/Card";
+import { LongCard } from "../components/layout/LongCard";
+
+export const LandingPage = () => {
+    const cardsData = [
+        {
+            id: 1,
+            title: "Journaling",
+            description: "Reflect on your day, express your thoughts, and gain insights into your emotional patterns.",
+            image_path: journaling
+        },
+        {
+            id: 2,
+            title: "Mood Tracking",
+            description: "Monitor your emotional state, identify triggers, and track your progress over time.",
+            image_path: mood
+        },
+        {
+            id: 3,
+            title: "AI Companion",
+            description: "Engage in supportive conversations with our AI companion, available 24/7.",
+            image_path: ai_companion
+        },
+        {
+            id: 4,
+            title: "Therapy Access",
+            description: "Connect with licensed therapists and access resources to support your mental health journey.",
+            image_path: therapist
+        }
+    ];
+
+    const successStories = [
+        {
+            id: 1,
+            title: "Sophia's Journey to Self-Discovery",
+            description: "With the help of the journaling feature, Sophia found a safe space to express her emotions and gain clarity on her mental health.",
+            image_path: sophia
+        },
+        {
+            id: 2,
+            title: "Ethan's Path to Emotional Balance",
+            description: "Ethan used the mood tracker to identify patterns in his emotional well-being and make positive changes in his daily routine.",
+            image_path: ethan
+        },
+        {
+            id: 3,
+            title: "Olivia's Transformation",
+            description: "Olivia connected with a therapist through the platform and found the support she needed to navigate a challenging time.",
+            image_path: olivia
+        },
+        {
+            id: 3,
+            title: "Olivia's Transformation",
+            description: "Olivia connected with a therapist through the platform and found the support she needed to navigate a challenging time.",
+            image_path: olivia
+        },
+        {
+            id: 3,
+            title: "Olivia's Transformation",
+            description: "Olivia connected with a therapist through the platform and found the support she needed to navigate a challenging time.",
+            image_path: olivia
+        }
+
+    ];
+
+
+
+    const resources = [
+        {
+            id: 1,
+            header: "Understanding Anxiety: A Comprehensive Guide",
+            body: "Learn about the different types of anxiety, their symptoms, and effective coping strategies.Learn about the different types of anxiety, their symptoms, and effective coping strategies.Learn about the different types of anxiety, their symptoms, and effective coping strategies.",
+            path: anxiety
+        },
+        {
+            id: 2,
+            header: "The Power of Mindfulness: Techniques for Stress Reduction",
+            body: "Discover mindfulness practices to cultivate inner peace and manage stress in your daily life.Discover mindfulness practices to cultivate inner peace and manage stress in your daily life.Discover mindfulness practices to cultivate inner peace and manage stress in your daily life.",
+            path: stress
+        }
+    ]
+
+    return (
+        <div className="min-h-screen flex flex-col">
+            <NavBar />
+            <div className="mx-40 space-y-6 font-primary rounded-md" >
+                <div className="rounded-md">
+                    <div
+                        className="bg-no-repeat bg-auto h-screen bg-center text-white flex flex-col justify-center items-center text-center rounded-3xl"
+                        style={{
+                            height: "700px",
+                            width: "auto",
+                            backgroundImage: `url(${backgroundImg})`,
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center',
+                            backgroundRepeat: 'no-repeat',
+                        }}
+                    >
+                        <h1 className="text-4xl md:text-6xl font-bold mb-4">Your Personalized Mental Health Companion</h1>
+                        <p className="text-lg md:text-xxl max-w-xl mb-6">Discover a new way to nurture your mental well-being with our AI-powered platform. Track your mood, journal your thoughts, and connect with a supportive AI companion. Access therapy resources and embark on a journey towards a healthier, happier you.</p>
+                        <div className="flex gap-4">
+                            <Link to="/demo">
+                                <button className="bg-white text-gray-700 px-6 py-2 rounded-full font-semibold hover:bg-primary transition hover:text-white">
+                                    Try Demo
+                                </button>
+                            </Link>
+                            <Link to="/signup">
+                                <button className="bg-primary text-white px-6 py-2 rounded-full font-semibold hover:bg-primary transition">
+                                    Sign Up Free
+                                </button>
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="space-y-2 font-primary">
+                    <h3 className="text-2xl font-bold">
+                        Empowering Your Mental Wellness  Journey
+                    </h3>
+                    <p className="pb-7">
+                        Exprore the features designed to support your mental health, from daily tracking to Personalized guidance
+                    </p>
+
+                    <div className="flex flex-wrap justify-center gap-5">
+                        {cardsData.map(card => (
+                            <Card key={card.id} title={card.title} description={card.description} path={card.image_path} />
+                        ))}
+                    </div>
+
+                </div>
+
+                <div>
+                    <h3 className="text-2xl font-bold pb-7">Success Stories</h3>
+                    <div className="flex gap-5  justify-center">
+                        {successStories.map(data => (
+                            <LongCard key={data.id} title={data.title} description={data.description} path={data.image_path} />
+                        ))}
+                    </div>
+                </div>
+
+                <div>
+                    <h3 className="text-2xl font-bold pb-3 pt-5">Resources</h3>
+                    {resources.map(resourceData => (
+                        <div key={resourceData.id} className="mb-4 flex justify-between">
+                            <div>
+                                <h4 className="text-xl font-semibold text-gray-800">{resourceData.header}</h4>
+                            <p className="text-gray-600 max-w-10/12">{resourceData.body}</p>
+                            </div>
+
+                            <div className="bg-white p-2 rounded-lg shadow-xl transition-shadow duration-300  sm:max-w-md">
+                                <img src={resourceData.path} />
+                            </div>
+                        </div>
+                    ))}
+
+                </div>
+            </div>
+        </div>
+    );
+}
+
+
+
+
+
+

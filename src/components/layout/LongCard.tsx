@@ -6,14 +6,19 @@ interface CardProps{
 
 export const LongCard = ({title,description,path}: CardProps) =>{
     return(
-        <div className="bg-white px-6 rounded-lg shadow-xl hover:shadow-lg transition-shadow duration-300 min-w-[280px] w-full sm:max-w-sm">
-            <img src={path}/>
-            <h3 className="text-l font-semibold mb-2 hover:text-primary transition-colors">
-                {title}
-            </h3>
-            <p className="text-gray-600 line-clamp-4">
-                {description}
-            </p>
-        </div>
+        
+
+<div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 mx-auto">
+    <a href="#">
+        <img className="w-34 h-34 m-3 rounded-full shadow-lg mx-auto" src={path} alt="" />
+    </a>
+    <div className="p-4">
+        <a href="#">
+            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{title}</h5>
+        </a>
+        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{description}</p>
+    </div>
+</div>
+
     );
 }

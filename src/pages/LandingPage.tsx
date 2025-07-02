@@ -64,17 +64,12 @@ export const LandingPage = () => {
             image_path: olivia
         },
         {
-            id: 3,
+            id: 4,
             title: "Olivia's Transformation",
             description: "Olivia connected with a therapist through the platform and found the support she needed to navigate a challenging time.",
             image_path: olivia
         },
-        {
-            id: 3,
-            title: "Olivia's Transformation",
-            description: "Olivia connected with a therapist through the platform and found the support she needed to navigate a challenging time.",
-            image_path: olivia
-        }
+
 
     ];
 
@@ -98,30 +93,26 @@ export const LandingPage = () => {
     return (
         <div className="min-h-screen flex flex-col">
             <NavBar />
-            <div className="mx-40 space-y-6 font-primary rounded-md" >
-                <div className="rounded-md">
+            <div className="sm:mx-6 space-y-6 font-primary rounded-md  px-6" >
+                <div>
                     <div
-                        className="bg-no-repeat bg-auto h-screen bg-center text-white flex flex-col justify-center items-center text-center rounded-3xl"
+                        className="w-full min-h-[35vh] sm:min-h-[70vh] md:min-h-[30vh] lg:min-h-[90vh] xl:min-h-screen bg-cover bg-center bg-no-repeat  text-white flex flex-col justify-center items-center text-center rounded-3xl"
                         style={{
-                            height: "700px",
-                            width: "auto",
                             backgroundImage: `url(${backgroundImg})`,
-                            backgroundSize: 'cover',
-                            backgroundPosition: 'center',
-                            backgroundRepeat: 'no-repeat',
                         }}
                     >
-                        <h1 className="text-4xl md:text-6xl font-bold mb-4">Your Personalized Mental Health Companion</h1>
-                        <p className="text-lg md:text-xxl max-w-xl mb-6">Discover a new way to nurture your mental well-being with our AI-powered platform. Track your mood, journal your thoughts, and connect with a supportive AI companion. Access therapy resources and embark on a journey towards a healthier, happier you.</p>
+
+                        <h1 className="text-lg mb-3 font-bold sm:text-2xl sm:font-bold sm:mb-4  md:text-3xl lg:text-6xl">Your Personalized Mental Health Companion</h1>
+                        <p className="text-sm max-w-full mb-4 sm:text-lg sm:mb-6 md:text-xl md:max-w-xl">Support your mental well-being with an AI companion. Track moods, journal freely, and access helpful therapy tools—your journey to a healthier mind starts here.</p>
                         <div className="flex gap-4">
                             <Link to="/demo">
-                                <button className="bg-white text-gray-700 px-6 py-2 rounded-full font-semibold hover:bg-primary transition hover:text-white">
+                                <button className="text-sm sm:text-base bg-white text-gray-700 px-4 sm:px-6  py-2 rounded-full font-semibold hover:bg-primary transition hover:text-white">
                                     Try Demo
                                 </button>
                             </Link>
                             <Link to="/signup">
-                                <button className="bg-primary text-white px-6 py-2 rounded-full font-semibold hover:bg-primary transition">
-                                    Sign Up Free
+                                <button className="text-sm sm:text-base bg-primary text-white  px-4 sm:px-6 py-2 rounded-full font-semibold hover:bg-primary transition">
+                                    Sign Up
                                 </button>
                             </Link>
                         </div>
@@ -129,16 +120,22 @@ export const LandingPage = () => {
                 </div>
 
                 <div className="space-y-2 font-primary">
-                    <h3 className="text-2xl font-bold">
+                    <h3 className="text-lg sm:text-4xl md:text-3xl lg:text-5xl font-bold">
                         Empowering Your Mental Wellness  Journey
                     </h3>
-                    <p className="pb-7">
-                        Exprore the features designed to support your mental health, from daily tracking to Personalized guidance
+                    <p className="text-sm sm:text-base">
+                        Explore the features designed to support your mental health, from daily tracking to Personalized guidance
                     </p>
 
-                    <div className="flex flex-wrap justify-center gap-5">
+                    <div className="flex flex-wrap justify-center">
                         {cardsData.map(card => (
-                            <Card key={card.id} title={card.title} description={card.description} path={card.image_path} />
+                            <div key={card.id} className="flex justify-center basis-full sm:basis-1/2 lg:basis-1/4 p-2">
+                                <Card
+                                    title={card.title}
+                                    description={card.description}
+                                    path={card.image_path}
+                                />
+                            </div>
                         ))}
                     </div>
 
@@ -146,34 +143,40 @@ export const LandingPage = () => {
 
                 <div>
                     <h3 className="text-2xl font-bold pb-7">Success Stories</h3>
-                    <div className="flex gap-5  justify-center">
+                    <div className="flex flex-wrap  justify-center">
                         {successStories.map(data => (
-                            <LongCard key={data.id} title={data.title} description={data.description} path={data.image_path} />
+                            <div key={data.id} className="flex justify-center basis-full sm:basis-1/2 lg:basis-1/4 p-2">
+                                <LongCard title={data.title} description={data.description} path={data.image_path} />
+                            </div>
                         ))}
                     </div>
                 </div>
 
                 <div>
-                    <h3 className="text-2xl font-bold pb-3 pt-5">Resources</h3>
+                    <h3 className="text-lg sm:text-4xl md:text-3xl lg:text-5xl font-bold">Resources</h3>
+
                     {resources.map(resourceData => (
                         <div key={resourceData.id} className="mb-4 flex justify-between">
                             <div>
-                                <h4 className="text-xl font-semibold text-gray-800">{resourceData.header}</h4>
-                            <p className="text-gray-600 max-w-10/12">{resourceData.body}</p>
+                                <h4 className="text-md sm:text-xl md:text-2xl lg:text-3xl font-bold">{resourceData.header}</h4>
+                                <p className="text-sm md:text-base text-gray-600 max-w-10/12">{resourceData.body}</p>
                             </div>
 
-                            <div className="bg-white p-2 rounded-lg shadow-xl transition-shadow duration-300  sm:max-w-md">
-                                <img src={resourceData.path} />
+                            <div className=" rounded-lg shadow-xl transition-shadow duration-300">
+                                <img
+                                    src={resourceData.path}
+                                    alt="resource"
+                                    className="w-full h-auto rounded-md object-cover"
+                                />
                             </div>
+
                         </div>
                     ))}
 
                 </div>
- 
- 
-            
+
             </div>
-            <Footer/>
+            <Footer />
         </div>
     );
 }
